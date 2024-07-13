@@ -17,6 +17,7 @@ def test_cart_should_have_computer_with_provided_attributes():
     response = api_request(
         url, '/addproducttocart/details/72/1', method='POST', data=data
     )
+
     cookie = response.cookies.get('Nop.customer')
 
     # AND
@@ -47,6 +48,7 @@ def test_cart_should_display_correct_quantity_of_products():
     response = api_request(
         url, '/addproducttocart/details/31/1', method='POST', data=data
     )
+
     cookie = response.cookies.get('Nop.customer')
 
     # AND
@@ -71,8 +73,8 @@ def test_remove_product_from_cart():
     browser.open('/cart')
     browser.driver.add_cookie({'name': 'Nop.customer', 'value': cookie})
     browser.driver.refresh()
-    pass
 
+    # THEN
     browser.element('.cart').element('[name=removefromcart]').click()
     browser.element('[name=updatecart]').click()
     browser.element('.order-summary-content').should(
