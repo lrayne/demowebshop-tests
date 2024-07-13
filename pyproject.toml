@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "demowebshop-tests"
+version = "0.1.0"
+description = ""
+authors = ["lrayne <legaterayne@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+requests = "^2.32.3"
+selene = {version = "^2.0.0rc9", allow-prereleases = true}
+pytest = "^8.2.2"
+python-dotenv = "^1.0.1"
+allure-pytest = "^2.13.5"
+
+[tool.pytest.ini_options]
+log_date_format = "%Y-%m-%d %H:%M:%S"
+log_format = "%(asctime)s %(levelname)s %(message)s"
+log_cli_level = "INFO"
+log_cli = true
+addopts = [
+    '--clean-alluredir',
+    '--alluredir=allure-results'
+]
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
